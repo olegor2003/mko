@@ -1,0 +1,8 @@
+C:\Projects\Git\mko\src\Mko\Mko.Shell\bin\Debug\Mko.Shell.exe.config
+C:\Projects\Git\mko\src\Mko\Mko.Shell\bin\Debug\Mko.Shell.exe
+C:\Projects\Git\mko\src\Mko\Mko.Shell\bin\Debug\Mko.Shell.pdb
+C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.csprojResolveAssemblyReference.cache
+C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.Properties.Resources.resources
+C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.csproj.GenerateResource.Cache
+C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.exe
+C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.pdb
