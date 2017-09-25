@@ -6,3 +6,6 @@ C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.Properties.Resources.r
 C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.csproj.GenerateResource.Cache
 C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.exe
 C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.pdb
+C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Mko.Shell.exe.config
+C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.exe
+C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.pdb
