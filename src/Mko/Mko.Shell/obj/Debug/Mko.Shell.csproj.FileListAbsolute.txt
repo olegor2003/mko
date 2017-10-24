@@ -9,3 +9,12 @@ C:\Projects\Git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.pdb
 C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Mko.Shell.exe.config
 C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.exe
 C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.pdb
+C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Mko.Shell.exe
+C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Mko.Shell.pdb
+C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Autofac.dll
+C:\git\mko\src\Mko\Mko.Shell\bin\Debug\NLog.dll
+C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Autofac.xml
+C:\git\mko\src\Mko\Mko.Shell\bin\Debug\NLog.xml
+C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.csprojResolveAssemblyReference.cache
+C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.Properties.Resources.resources
+C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.csproj.GenerateResource.Cache
