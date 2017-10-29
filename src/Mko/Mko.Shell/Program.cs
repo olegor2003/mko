@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
+using Autofac;
+using Mko.ViewModel;
 
 namespace Mko.Shell
 {
@@ -16,7 +16,12 @@ namespace Mko.Shell
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var builder = new ContainerBuilder();
+            builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
+            var container = builder.Build();
+            var shell = new ShellForm();
+            var shellPresenter = new ShellPresenter(container, shell);
+            Application.Run(shell);
         }
     }
 }

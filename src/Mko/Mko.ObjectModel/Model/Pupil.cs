@@ -14,6 +14,6 @@ namespace Mko.ObjectModel.Model
 
         public string LastName { get; set; }
 
-        internal SchoolYear SchoolYear { get; set; }
+        public string FullName => $"{FirstName} {LastName}";
     }
 }

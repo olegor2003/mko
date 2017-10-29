@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using Mko.ObjectModel.Model;
 
 namespace Mko.Infra
@@ -18,9 +13,28 @@ namespace Mko.Infra
 
         public DbSet<Year> Yeares { get; set; }
 
+        public MainDbContext()
+        {
+            Init();
+        }
+
+        public MainDbContext(string nameOrConnectionString) : base(nameOrConnectionString)
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            Database.SetInitializer(new FluentDbContextInitializer<MainDbContext>());
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new GradeProfile());
+            modelBuilder.Configurations.Add(new PupulProfile());
+            modelBuilder.Configurations.Add(new SchoolYearProfile());
+            modelBuilder.Configurations.Add(new YearProfile());
         }
     }
 }

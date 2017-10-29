@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Mko.ObjectModel.Model;
 
 namespace Mko.Infra
 {
-    public class GradeProfile : EntityTypeConfiguration<GradeProfile>
+    public class GradeProfile : EntityTypeConfiguration<Grade>
     {
         public GradeProfile()
         {

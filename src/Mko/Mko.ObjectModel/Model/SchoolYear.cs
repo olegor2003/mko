@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mko.ObjectModel.Model
+﻿namespace Mko.ObjectModel.Model
 {
     public class SchoolYear
     {
@@ -15,5 +9,11 @@ namespace Mko.ObjectModel.Model
         public int YearId { get; set; }
 
         public int GradeId { get; set; }
+
+        //public ICollection<Pupil>  Pupils { get; set; }
+
+        //public ICollection<Year> Years { get; set; }
+
+        //public ICollection<Grade> Grades { get; set; }
     }
 }
