@@ -15,6 +15,5 @@ C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Autofac.dll
 C:\git\mko\src\Mko\Mko.Shell\bin\Debug\NLog.dll
 C:\git\mko\src\Mko\Mko.Shell\bin\Debug\Autofac.xml
 C:\git\mko\src\Mko\Mko.Shell\bin\Debug\NLog.xml
-C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.csprojResolveAssemblyReference.cache
 C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.Properties.Resources.resources
 C:\git\mko\src\Mko\Mko.Shell\obj\Debug\Mko.Shell.csproj.GenerateResource.Cache

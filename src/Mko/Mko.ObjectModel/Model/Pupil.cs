@@ -13,5 +13,7 @@ namespace Mko.ObjectModel.Model
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        internal SchoolYear SchoolYear { get; set; }
     }
 }
