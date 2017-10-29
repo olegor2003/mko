@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Model\Grade.cs" />
     <Compile Include="Model\Pupil.cs" />
+    <Compile Include="Model\SchoolYear.cs" />
+    <Compile Include="Model\Year.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
