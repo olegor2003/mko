@@ -21,7 +21,7 @@ namespace Mko.ViewModel
             View.Pupils = pupilRepository.GetYearPupils(context.CurrentYear.Id);
         }
 
-        private void OnCurrentPupilCahnged(object sender, EventArgs e)
+        private void OnCurrentPupilCahnged(object sender, Pupil pupil)
         {
 
         }

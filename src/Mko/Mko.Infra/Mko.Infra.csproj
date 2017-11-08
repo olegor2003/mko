@@ -63,6 +63,7 @@
     <Compile Include="MarkProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PupulProfile.cs" />
+    <Compile Include="Repositories\IMarksRepository.cs" />
     <Compile Include="Repositories\PupilRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\YearsRepository.cs" />
