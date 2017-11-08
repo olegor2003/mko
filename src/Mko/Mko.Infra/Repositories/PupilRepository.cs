@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Mko.ObjectModel.Model;
 using Mko.ObjectModel.Repositories;
+using System.Data.Entity;
 
 namespace Mko.Infra.Repositories
 {
-    public class PupilRepository : IPupilRepository
+    public class PupilRepository : RepositoryBase, IPupilRepository
     {
-        private readonly Func<MainDbContext> _contextFactory;
-
-        public PupilRepository(Func<MainDbContext> contextFactory)
+        public PupilRepository(Func<MainDbContext> contextFactory) : base(contextFactory)
         {
-            _contextFactory = contextFactory;
         }
 
         public IReadOnlyCollection<Pupil> GetActiveYearPupils()
@@ -36,6 +34,17 @@ namespace Mko.Infra.Repositories
         public Pupil UpdatePupil(Pupil pupil)
         {
             throw new System.NotImplementedException();
+        }
+
+        public IReadOnlyCollection<Pupil> GetYearPupils(int yearId)
+        {
+            using (var context = _contextFactory())
+            {
+                return context
+                            .Pupils
+                            .Where(p => p.SchoolYears.Any(sy => sy.YearId == yearId))
+                            .ToList();
+            }
         }
     }
 }

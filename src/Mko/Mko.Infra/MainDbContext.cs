@@ -11,7 +11,11 @@ namespace Mko.Infra
 
         public DbSet<SchoolYear> SchoolYears { get; set; }
 
-        public DbSet<Year> Yeares { get; set; }
+        public DbSet<Year> Years { get; set; }
+
+        public DbSet<Subject> Subjects { get; set; }
+
+        public DbSet<Mark> Marks { get; set; }
 
         public MainDbContext()
         {
@@ -35,6 +39,7 @@ namespace Mko.Infra
             modelBuilder.Configurations.Add(new PupulProfile());
             modelBuilder.Configurations.Add(new SchoolYearProfile());
             modelBuilder.Configurations.Add(new YearProfile());
+            modelBuilder.Configurations.Add(new MarkProfile());
         }
     }
 }

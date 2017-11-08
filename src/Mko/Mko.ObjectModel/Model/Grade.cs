@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Mko.ObjectModel.Model
 {
@@ -14,5 +9,7 @@ namespace Mko.ObjectModel.Model
         public string Letter { get; set; }
 
         public int Parallel { get; set; }
+
+        internal ICollection<SchoolYear> SchoolYears { get; set; }
     }
 }

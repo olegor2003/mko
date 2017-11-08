@@ -18,6 +18,8 @@ namespace Mko.Infra
                .IsRequired()
                .HasColumnName("LastName")
                .HasMaxLength(256);
+
+            HasMany(p => p.SchoolYears);
         }
     }
 }

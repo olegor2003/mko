@@ -15,6 +15,10 @@ namespace Mko.Shell.ModulesProfile
                 .As<IPupilRepository>();
 
             moduleBuilder
+                .RegisterType<YearsRepository>()
+                .As<IYearsRepository>();
+
+            moduleBuilder
                 .RegisterType<PupilMarksControl>()
                 .As<IPeopleMarksView>();
 
@@ -23,6 +27,10 @@ namespace Mko.Shell.ModulesProfile
 
             moduleBuilder
                 .RegisterType<MainDbContext>();
+
+            moduleBuilder
+                .RegisterType<Context>()
+                .SingleInstance();
         }
     }
 }

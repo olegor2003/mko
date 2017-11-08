@@ -6,7 +6,7 @@ namespace Mko.ObjectModel.Repositories
 {
     public interface IPupilRepository
     {
-        IReadOnlyCollection<Pupil> GetActiveYearPupils();
+        IReadOnlyCollection<Pupil> GetYearPupils(int yearId);
 
         void AddPupul(Pupil pupil);
 

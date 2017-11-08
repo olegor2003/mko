@@ -10,10 +10,10 @@
 
         public int GradeId { get; set; }
 
-        //public ICollection<Pupil>  Pupils { get; set; }
+        public Pupil Pupil { get; set; }
 
-        //public ICollection<Year> Years { get; set; }
+        public Grade Grade { get; set; }
 
-        //public ICollection<Grade> Grades { get; set; }
+        public Year Year { get; set; }
     }
 }

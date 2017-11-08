@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayaout = new System.Windows.Forms.TableLayoutPanel();
             this.pupilsGridControl = new System.Windows.Forms.DataGridView();
+            this.pupilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.periodsTabControl = new System.Windows.Forms.TabControl();
             this.startPeriodControl = new System.Windows.Forms.TabPage();
             this.midiatePeriodControl = new System.Windows.Forms.TabPage();
             this.finalPeriodControl = new System.Windows.Forms.TabPage();
-            this.pupilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayaout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pupilsGridControl)).BeginInit();
-            this.periodsTabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pupilBindingSource)).BeginInit();
+            this.periodsTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayaout
@@ -74,6 +74,11 @@
             this.pupilsGridControl.ReadOnly = true;
             this.pupilsGridControl.Size = new System.Drawing.Size(294, 423);
             this.pupilsGridControl.TabIndex = 0;
+            // 
+            // pupilBindingSource
+            // 
+            this.pupilBindingSource.AllowNew = false;
+            this.pupilBindingSource.DataSource = typeof(Mko.ObjectModel.Model.Pupil);
             // 
             // periodsTabControl
             // 
@@ -116,15 +121,10 @@
             this.finalPeriodControl.Text = "Итоговый";
             this.finalPeriodControl.UseVisualStyleBackColor = true;
             // 
-            // pupilBindingSource
-            // 
-            this.pupilBindingSource.AllowNew = false;
-            this.pupilBindingSource.DataSource = typeof(Mko.ObjectModel.Model.Pupil);
-            // 
             // FullName
             // 
             this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "FullName";
+            this.FullName.HeaderText = "Имя учащегося";
             this.FullName.Name = "FullName";
             this.FullName.ReadOnly = true;
             // 
@@ -137,8 +137,8 @@
             this.Size = new System.Drawing.Size(768, 429);
             this.tableLayaout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pupilsGridControl)).EndInit();
-            this.periodsTabControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pupilBindingSource)).EndInit();
+            this.periodsTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

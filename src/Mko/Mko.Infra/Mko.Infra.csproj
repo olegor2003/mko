@@ -60,9 +60,12 @@
     <Compile Include="FluentDbContextInitializer.cs" />
     <Compile Include="GradeProfile.cs" />
     <Compile Include="MainDbContext.cs" />
+    <Compile Include="MarkProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PupulProfile.cs" />
     <Compile Include="Repositories\PupilRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\YearsRepository.cs" />
     <Compile Include="SchoolYearProfile.cs" />
     <Compile Include="YearProfile.cs" />
   </ItemGroup>

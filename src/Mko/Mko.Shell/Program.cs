@@ -20,7 +20,8 @@ namespace Mko.Shell
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
             var container = builder.Build();
             var shell = new ShellForm();
-            var shellPresenter = new ShellPresenter(container, shell);
+            var context = container.Resolve<Context>();
+            var shellPresenter = new ShellPresenter(container, shell, context);
             Application.Run(shell);
         }
     }

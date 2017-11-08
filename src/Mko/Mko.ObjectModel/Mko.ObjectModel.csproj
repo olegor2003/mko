@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BaseEntity.cs" />
     <Compile Include="Model\Grade.cs" />
     <Compile Include="Model\Mark.cs" />
+    <Compile Include="Model\Periods.cs" />
     <Compile Include="Model\Pupil.cs" />
     <Compile Include="Model\Range.cs" />
     <Compile Include="Model\SchoolYear.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="Model\Year.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IPupilRepository.cs" />
+    <Compile Include="Repositories\IYearsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
