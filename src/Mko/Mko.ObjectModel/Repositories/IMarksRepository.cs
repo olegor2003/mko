@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Mko.ObjectModel.Model;
 
-namespace Mko.Infra.Repositories
+namespace Mko.ObjectModel.Repositories
 {
     public interface IMarksRepository
     {

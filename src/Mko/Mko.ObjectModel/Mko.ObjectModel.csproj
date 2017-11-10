@@ -53,6 +53,7 @@
     <Compile Include="Model\Year.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IMarksRepository.cs" />
     <Compile Include="Repositories\IPupilRepository.cs" />
     <Compile Include="Repositories\IYearsRepository.cs" />
   </ItemGroup>

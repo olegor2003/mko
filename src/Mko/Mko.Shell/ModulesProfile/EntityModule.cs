@@ -26,7 +26,8 @@ namespace Mko.Shell.ModulesProfile
                 .RegisterType<PupilMarksPresenter>();
 
             moduleBuilder
-                .RegisterType<MainDbContext>();
+                .RegisterType<MainDbContext>()
+                .SingleInstance();
 
             moduleBuilder
                 .RegisterType<Context>()

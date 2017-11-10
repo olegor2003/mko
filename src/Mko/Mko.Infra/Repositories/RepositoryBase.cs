@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace Mko.Infra.Repositories
+﻿namespace Mko.Infra.Repositories
 {
     public abstract class RepositoryBase
     {
-        protected readonly Func<MainDbContext> _contextFactory;
+        protected readonly MainDbContext _context;
 
-        protected RepositoryBase(Func<MainDbContext> contextFactory)
+        protected RepositoryBase(MainDbContext context)
         {
-            this._contextFactory = contextFactory;
+            this._context = context;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Mko.ObjectModel.Model;
 using Mko.ObjectModel.Repositories;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace Mko.ViewModel
             _context = context;
             View = pupilView;
             View.CurrentPupilCahnged += OnCurrentPupilCahnged;
-            View.Pupils = pupilRepository.GetYearPupils(context.CurrentYear.Id);
+            View.Pupils = pupilRepository.GetYearPupils(context.CurrentYear.Id).ToList();
         }
 
         private void OnCurrentPupilCahnged(object sender, Pupil pupil)
