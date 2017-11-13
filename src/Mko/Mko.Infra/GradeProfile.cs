@@ -8,6 +8,8 @@ namespace Mko.Infra
         public GradeProfile()
         {
             HasMany(g => g.SchoolYears);
+
+            Ignore(g => g.Name);
         }
     }
 }

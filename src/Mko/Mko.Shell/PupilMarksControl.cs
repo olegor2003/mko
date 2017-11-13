@@ -18,11 +18,11 @@ namespace Mko.Shell
 
         private void PupilBindingSourceCurrentChanged(object sender, EventArgs e)
         {
-            var copy = CurrentPupilCahnged;
+            var copy = CurrentPupilChanged;
             copy?.Invoke(this, CurrentPupil);
         }
 
-        public event EventHandler<Pupil> CurrentPupilCahnged;
+        public event EventHandler<Pupil> CurrentPupilChanged;
 
         public IReadOnlyCollection<Pupil> Pupils
         {
@@ -37,11 +37,19 @@ namespace Mko.Shell
             }
         }
 
-        public event EventHandler<Periods> CurrentPeriodCahnged;
-
-        public DialogResult ShowSaveMessage()
+        public IReadOnlyCollection<SubjectMark> Marks
         {
-            throw new NotImplementedException();
+            set { subjectMarksBindingSource.DataSource = value; }
+        }
+
+        public event EventHandler<Periods> CurrentPeriodChanged;
+
+        public DialogResult Save()
+        {
+            using (var saveDialog = new SaveDialogForm())
+            {
+                return saveDialog.ShowDialog(this);
+            }
         }
     }
 }

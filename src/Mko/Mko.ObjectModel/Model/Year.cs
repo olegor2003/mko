@@ -2,7 +2,7 @@
 
 namespace Mko.ObjectModel.Model
 {
-    public class Year: BaseEntity
+    public class Year: BaseEntity, INameable
     {
         public string Name { get; set; }
 

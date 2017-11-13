@@ -6,6 +6,7 @@ using FluentMigrator.Runner.Announcers;
 using FluentMigrator.Runner.Initialization;
 using FluentMigrator.Runner.Processors;
 using FluentMigrator.Runner.Processors.SqlServer;
+using Mko.ObjectModel.Model;
 
 namespace Mko.Infra
 {
@@ -18,6 +19,7 @@ namespace Mko.Infra
             if (isNotExist)
             {
                 FillVersionInfoTable(context.Database.Connection.ConnectionString);
+                SeedDb(context as MainDbContext);
             }
         }
         private void FillVersionInfoTable(string connectionString)
@@ -38,6 +40,12 @@ namespace Mko.Infra
                 }
                 processor.CommitTransaction();
             }
+        }
+
+        private static void SeedDb(MainDbContext context)
+        {
+            context.Years.Add(new Year() { IsActive = true, Name = "2017-2018" });
+            context.SaveChanges();
         }
     }
 }

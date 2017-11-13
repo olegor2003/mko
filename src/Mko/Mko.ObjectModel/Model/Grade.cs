@@ -2,13 +2,13 @@
 
 namespace Mko.ObjectModel.Model
 {
-    public class Grade
+    public class Grade: BaseEntity, INameable
     {
-        public int Id { get; set; }
-
         public string Letter { get; set; }
-
+        
         public int Parallel { get; set; }
+
+        public string Name => $"{Parallel}{Letter}";
 
         internal ICollection<SchoolYear> SchoolYears { get; set; }
     }

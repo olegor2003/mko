@@ -23,6 +23,17 @@ namespace Mko.Shell.ModulesProfile
                 .As<IPeopleMarksView>();
 
             moduleBuilder
+                .RegisterType<GradeRepository>()
+                .As<IGradeRepository>();
+
+            moduleBuilder
+                .RegisterType<MarksRepository>()
+                .As<IMarksRepository>();
+
+            moduleBuilder
+                .RegisterType<ShellPresenter>();
+
+            moduleBuilder
                 .RegisterType<PupilMarksPresenter>();
 
             moduleBuilder

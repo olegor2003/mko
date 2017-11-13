@@ -36,11 +36,18 @@
             this.startPeriodControl = new System.Windows.Forms.TabPage();
             this.midiatePeriodControl = new System.Windows.Forms.TabPage();
             this.finalPeriodControl = new System.Windows.Forms.TabPage();
+            this.subjectMarkDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectMarksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayaout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pupilsGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pupilBindingSource)).BeginInit();
             this.periodsTabControl.SuspendLayout();
+            this.startPeriodControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectMarkDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectMarksBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayaout
@@ -94,6 +101,7 @@
             // 
             // startPeriodControl
             // 
+            this.startPeriodControl.Controls.Add(this.subjectMarkDataGridView);
             this.startPeriodControl.Location = new System.Drawing.Point(4, 22);
             this.startPeriodControl.Name = "startPeriodControl";
             this.startPeriodControl.Padding = new System.Windows.Forms.Padding(3);
@@ -121,6 +129,36 @@
             this.finalPeriodControl.Text = "Итоговый";
             this.finalPeriodControl.UseVisualStyleBackColor = true;
             // 
+            // subjectMarkDataGridView
+            // 
+            this.subjectMarkDataGridView.AutoGenerateColumns = false;
+            this.subjectMarkDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.subjectMarkDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.subjectMarkDataGridView.DataSource = this.subjectMarksBindingSource;
+            this.subjectMarkDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.subjectMarkDataGridView.Name = "subjectMarkDataGridView";
+            this.subjectMarkDataGridView.Size = new System.Drawing.Size(430, 322);
+            this.subjectMarkDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Subject";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Subject";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Value";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Value";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // subjectMarksBindingSource
+            // 
+            this.subjectMarksBindingSource.DataSource = typeof(Mko.ViewModel.SubjectMark);
+            // 
             // FullName
             // 
             this.FullName.DataPropertyName = "FullName";
@@ -139,6 +177,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pupilsGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pupilBindingSource)).EndInit();
             this.periodsTabControl.ResumeLayout(false);
+            this.startPeriodControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.subjectMarkDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectMarksBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +194,10 @@
         private System.Windows.Forms.TabPage midiatePeriodControl;
         private System.Windows.Forms.TabPage finalPeriodControl;
         private System.Windows.Forms.BindingSource pupilBindingSource;
+        private System.Windows.Forms.BindingSource subjectMarksBindingSource;
+        private System.Windows.Forms.DataGridView subjectMarkDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
     }
 }

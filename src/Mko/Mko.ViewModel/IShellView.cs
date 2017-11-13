@@ -8,7 +8,11 @@ namespace Mko.ViewModel
     {
         event EventHandler<Year> YearChanged;
 
+        event EventHandler<Grade> GradeChanged;
+
         IReadOnlyCollection<Year> Years { set; }
+
+        IReadOnlyCollection<Grade> Grades { set; }
 
         void AddView(IView view);
     }

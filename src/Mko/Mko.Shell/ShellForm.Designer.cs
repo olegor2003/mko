@@ -30,6 +30,7 @@
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.yearSelector = new System.Windows.Forms.ToolStripComboBox();
+            this.gradeSelector = new System.Windows.Forms.ToolStripComboBox();
             this.aboutProgram = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,6 +41,7 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.yearSelector,
+            this.gradeSelector,
             this.aboutProgram});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -54,6 +56,13 @@
             "2017-2018 уч. год"});
             this.yearSelector.Name = "yearSelector";
             this.yearSelector.Size = new System.Drawing.Size(121, 23);
+            // 
+            // gradeSelector
+            // 
+            this.gradeSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gradeSelector.Name = "gradeSelector";
+            this.gradeSelector.Size = new System.Drawing.Size(121, 23);
+            this.gradeSelector.Sorted = true;
             // 
             // aboutProgram
             // 
@@ -102,5 +111,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutProgram;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripComboBox gradeSelector;
     }
 }

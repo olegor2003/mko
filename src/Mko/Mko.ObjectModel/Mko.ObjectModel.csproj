@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\INameable.cs" />
+    <Compile Include="Repositories\IGradeRepository.cs" />
     <Compile Include="Model\BaseEntity.cs" />
     <Compile Include="Model\Grade.cs" />
     <Compile Include="Model\Mark.cs" />

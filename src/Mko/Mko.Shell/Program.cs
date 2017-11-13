@@ -21,19 +21,11 @@ namespace Mko.Shell
             Application.SetCompatibleTextRenderingDefault(false);
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
-            _container = builder.Build();
-            SeedDb();
             var shell = new ShellForm();
-            var context = _container.Resolve<Context>();
-            var shellPresenter = new ShellPresenter(_container, shell, context);
+            builder.RegisterInstance(shell).As<IShellView>();
+            _container = builder.Build();
+            var shellPresenter = _container.Resolve<ShellPresenter>();
             Application.Run(shell);
-        }
-
-        private static void SeedDb()
-        {
-            var context = _container.Resolve<MainDbContext>();
-            context.Years.Add(new Year() { IsActive = true, Name = "2017-2018" });
-            context.SaveChanges();
         }
     }
 }

@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+using System.Collections.ObjectModel;
 using Mko.ObjectModel.Model;
 
 namespace Mko.ViewModel
 {
-    public interface IPeopleMarksView: IView
+    public interface IPeopleMarksView : ISaveableView
     {
-        event EventHandler<Pupil> CurrentPupilCahnged;
+        event EventHandler<Pupil> CurrentPupilChanged;
 
-        event EventHandler<Periods> CurrentPeriodCahnged;
+        event EventHandler<Periods> CurrentPeriodChanged;
 
         IReadOnlyCollection<Pupil> Pupils { get; set; }
 
-        DialogResult ShowSaveMessage();
+        IReadOnlyCollection<SubjectMark> Marks { set; }
     }
 }
