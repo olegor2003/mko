@@ -10,6 +10,6 @@ namespace Mko.ObjectModel.Model
 
         public string FullName => $"{FirstName} {LastName}";
 
-        internal ICollection<SchoolYear> SchoolYears { get; set; }
+        internal virtual ICollection<SchoolYear> SchoolYears { get; set; }
     }
 }

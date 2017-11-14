@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObservableCollectionEx.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="ISaveableView.cs" />
     <Compile Include="IShellView.cs" />

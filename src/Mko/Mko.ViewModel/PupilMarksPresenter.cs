@@ -1,9 +1,8 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Mko.ObjectModel.Model;
 using Mko.ObjectModel.Repositories;
-using System.Windows.Forms;
 
 namespace Mko.ViewModel
 {
@@ -30,9 +29,33 @@ namespace Mko.ViewModel
 
         private void OnCurrentPupilChanged(object sender, Pupil pupil)
         {
+            if (_context.CurrentPupil == pupil)
+            {
+                return;
+            }
+
+            _context.CurrentPupil = pupil;
+            var subject = new List<Subject>()
+            {
+                new Subject() {Id = 1, ShortName = "Математика", Parallel = Parallel.First, FullName = "Математика"},
+                new Subject() {Id = 2, ShortName = "Рус-яз", Parallel = Parallel.First, FullName = "Рус-яз"},
+                new Subject() {Id = 3, ShortName = "Чтение", Parallel = Parallel.First, FullName = "Чтение"},
+                new Subject() {Id = 4, ShortName = "Физ-ра", Parallel = Parallel.First, FullName = "Физ-ра"}
+            };
             var marks = _marksRepository.GetMarksFor(pupil.Id, _context.CurrentPeriod, _context.CurrentYear.Id);
-            var subjectMarks = new ObservableCollection<SubjectMark>(marks.Select(m => new SubjectMark(m)));
-            View.Marks = subjectMarks;
+            var subjectMarks = subject.Select(s => new SubjectMark(s, marks.FirstOrDefault(m => m.Subject.Id == s.Id)));
+            var observable = new ObservableCollectionEx<SubjectMark>();
+            foreach (var sm in subjectMarks)
+            {
+                observable.Add(sm);
+            }
+            observable.CollectionChanged += Observable_CollectionChanged;
+            View.Marks = observable;
+        }
+
+        private void Observable_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            //throw new System.NotImplementedException();
         }
     }
 }

@@ -8,6 +8,6 @@ namespace Mko.ObjectModel.Model
 
         public bool IsActive { get; set; }
 
-        internal ICollection<SchoolYear> SchoolYears { get; set; }
+        internal virtual ICollection<SchoolYear> SchoolYears { get; set; }
     }
 }

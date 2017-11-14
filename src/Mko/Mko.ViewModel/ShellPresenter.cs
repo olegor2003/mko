@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Autofac;
 using Mko.ObjectModel.Model;
 using Mko.ObjectModel.Repositories;
 

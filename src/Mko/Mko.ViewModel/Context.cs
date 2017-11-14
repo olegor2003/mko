@@ -9,5 +9,7 @@ namespace Mko.ViewModel
         public Periods CurrentPeriod { get; set; }
 
         public Grade CurrentGrade { get; set; }
+
+        public Pupil CurrentPupil { get; set; }
     }
 }

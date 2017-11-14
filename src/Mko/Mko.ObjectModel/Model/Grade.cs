@@ -6,10 +6,10 @@ namespace Mko.ObjectModel.Model
     {
         public string Letter { get; set; }
         
-        public int Parallel { get; set; }
+        public Parallel Parallel { get; set; }
 
-        public string Name => $"{Parallel}{Letter}";
+        public string Name => $"{(int)Parallel}{Letter}";
 
-        internal ICollection<SchoolYear> SchoolYears { get; set; }
+        internal virtual ICollection<SchoolYear> SchoolYears { get; set; }
     }
 }
