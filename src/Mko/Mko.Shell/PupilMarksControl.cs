@@ -43,13 +43,5 @@ namespace Mko.Shell
         }
 
         public event EventHandler<Periods> CurrentPeriodChanged;
-
-        public DialogResult Save()
-        {
-            using (var saveDialog = new SaveDialogForm())
-            {
-                return saveDialog.ShowDialog(this);
-            }
-        }
     }
 }

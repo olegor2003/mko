@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Mko.ObjectModel.Model;
 
 namespace Mko.ViewModel
 {
-    public interface IPeopleMarksView : ISaveableView
+    public interface IPeopleMarksView: IView
     {
         event EventHandler<Pupil> CurrentPupilChanged;
 

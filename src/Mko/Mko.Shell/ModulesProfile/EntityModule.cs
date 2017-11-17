@@ -43,6 +43,14 @@ namespace Mko.Shell.ModulesProfile
             moduleBuilder
                 .RegisterType<Context>()
                 .SingleInstance();
+
+            moduleBuilder
+                .RegisterType<SaveService>()
+                .As<ISaveService>();
+
+            moduleBuilder
+                .RegisterType<SaveDialogForm>()
+                .As<ISaveView>();
         }
     }
 }

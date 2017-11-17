@@ -43,8 +43,7 @@ namespace Mko.ViewModel
         private void ContainedElementChanged(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged(e);
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
-
+            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, sender));
         }
     }
 }

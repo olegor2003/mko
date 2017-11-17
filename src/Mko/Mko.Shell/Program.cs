@@ -22,7 +22,7 @@ namespace Mko.Shell
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
             var shell = new ShellForm();
-            builder.RegisterInstance(shell).As<IShellView>();
+            builder.RegisterInstance(shell).AsSelf().As<IShellView>();
             _container = builder.Build();
             var shellPresenter = _container.Resolve<ShellPresenter>();
             Application.Run(shell);

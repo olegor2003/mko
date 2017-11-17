@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using Mko.ObjectModel.Model;
 using Mko.ObjectModel.Repositories;
@@ -11,17 +10,22 @@ namespace Mko.ViewModel
         private readonly IPupilRepository _pupilRepository;
         private readonly IMarksRepository _marksRepository;
         private readonly Context _context;
+        private readonly ISaveService _saveService;
+        private bool isDirty = false;
+        private readonly ObservableCollectionEx<SubjectMark> _observableSubjectMarks = new ObservableCollectionEx<SubjectMark>();
+        private readonly HashSet<SubjectMark> _changedMarks = new HashSet<SubjectMark>();
 
         public IPeopleMarksView View { get; set; }
 
         public bool IsEditable { get; set; }
 
-        public PupilMarksPresenter(IPupilRepository pupilRepository, IPeopleMarksView pupilView, IMarksRepository marksRepository, Context context)
+        public PupilMarksPresenter(IPupilRepository pupilRepository, IPeopleMarksView pupilView, IMarksRepository marksRepository, Context context, ISaveService saveService)
         {
             IsEditable = true;
             _pupilRepository = pupilRepository;
             _marksRepository = marksRepository;
             _context = context;
+            _saveService = saveService;
             View = pupilView;
             View.CurrentPupilChanged += OnCurrentPupilChanged;
             View.Pupils = pupilRepository.GetYearPupils(context.CurrentYear.Id).ToList();
@@ -34,6 +38,11 @@ namespace Mko.ViewModel
                 return;
             }
 
+            if (isDirty)
+            {
+                SaveChanges();
+            }
+
             _context.CurrentPupil = pupil;
             var subject = new List<Subject>()
             {
@@ -44,18 +53,46 @@ namespace Mko.ViewModel
             };
             var marks = _marksRepository.GetMarksFor(pupil.Id, _context.CurrentPeriod, _context.CurrentYear.Id);
             var subjectMarks = subject.Select(s => new SubjectMark(s, marks.FirstOrDefault(m => m.Subject.Id == s.Id)));
-            var observable = new ObservableCollectionEx<SubjectMark>();
+            _observableSubjectMarks.Clear();
             foreach (var sm in subjectMarks)
             {
-                observable.Add(sm);
+                _observableSubjectMarks.Add(sm);
             }
-            observable.CollectionChanged += Observable_CollectionChanged;
-            View.Marks = observable;
+            _observableSubjectMarks.CollectionChanged += OnCollectionChanged;
+            View.Marks = null;
+            View.Marks = _observableSubjectMarks;
         }
 
-        private void Observable_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        private void OnCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            //throw new System.NotImplementedException();
+            var changesMark = e.NewItems[0] as SubjectMark;
+            _changedMarks.Add(changesMark);
+
+            isDirty = true;
+        }
+
+        private void SaveChanges()
+        {
+            var changedMark = _changedMarks.First();
+            var mark = _marksRepository.GetMarksFor(_context.CurrentPupil.Id, _context.CurrentPeriod, _context.CurrentYear.Id).FirstOrDefault(m => m.Subject.Id == changedMark.SubjectId);
+            
+            if (mark == null)
+            {
+                mark = new Mark
+                {
+                    SubjectId = changedMark.SubjectId,
+                    Period = _context.CurrentPeriod,
+                    PupilId = _context.CurrentPupil.Id,
+                    YearId = _context.CurrentYear.Id,
+                    Value = changedMark.Value
+                };
+            }
+            else
+            {
+                mark.Value = changedMark.Value;
+            }
+            _saveService.SaveChanges(new[] { mark });
+            isDirty = false;
         }
     }
 }

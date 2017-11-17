@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
+using Mko.ViewModel;
 
 namespace Mko.Shell
 {
-    public partial class SaveDialogForm : Form
+    public partial class SaveDialogForm : Form, ISaveView
     {
-        public SaveDialogForm()
+        private readonly ShellForm _shell;
+
+        public SaveDialogForm(ShellForm shell)
         {
+            _shell = shell;
             InitializeComponent();
         }
 
@@ -19,5 +23,7 @@ namespace Mko.Shell
         {
             this.DialogResult = DialogResult.No;
         }
+
+        public bool SaveConfirmed => ShowDialog(_shell) == DialogResult.Yes;
     }
 }

@@ -14,6 +14,8 @@ namespace Mko.Infra
             Property(m => m.PupilId).IsRequired();
 
             Property(m => m.YearId).IsRequired();
+
+            Property(m => m.SubjectId).IsRequired().HasColumnName("Subject_Id");
         }
     }
 }
