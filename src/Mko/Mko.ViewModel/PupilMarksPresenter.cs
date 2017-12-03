@@ -14,13 +14,12 @@ namespace Mko.ViewModel
         private readonly ISaveService _saveService;
         private bool _isDirty = false;
         private ObservableCollectionEx<SubjectMark> _observableSubjectMarks;
-        private readonly HashSet<SubjectMark> _changedMarks;
+        private HashSet<SubjectMark> _changedMarks;
 
         public IPupilMarksView View { get; }
 
         public PupilMarksPresenter(IPupilRepository pupilRepository, IPupilMarksView pupilView, IMarksRepository marksRepository, ISubjectRepository subjectRepository, Context context, ISaveService saveService)
         {
-            _changedMarks = new HashSet<SubjectMark>();
             _marksRepository = marksRepository;
             _subjectRepository = subjectRepository;
             _context = context;
@@ -48,7 +47,12 @@ namespace Mko.ViewModel
                 SaveChanges();
             }
 
-            _changedMarks.Clear();
+            Prepare(pupil);
+        }
+
+        private void Prepare(Pupil pupil)
+        {
+            _changedMarks = new HashSet<SubjectMark>();
             _observableSubjectMarks = new ObservableCollectionEx<SubjectMark>();
             _context.CurrentPupil = pupil;
             var subjects = _subjectRepository.GetSubjects(_context.CurrentGrade.Parallel);
@@ -59,7 +63,6 @@ namespace Mko.ViewModel
                 _observableSubjectMarks.Add(sm);
             }
             _observableSubjectMarks.CollectionChanged += OnCollectionChanged;
-            View.Marks = null;
             View.Marks = _observableSubjectMarks;
         }
 

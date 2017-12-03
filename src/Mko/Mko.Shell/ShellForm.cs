@@ -27,7 +27,7 @@ namespace Mko.Shell
         {
             foreach (var form in panel1.Controls)
             {
-                var control = form as UserControl;
+                var control = (UserControl)form;
                 control.Dispose();
                 control = null;
             }
@@ -65,7 +65,7 @@ namespace Mko.Shell
             }
         }
 
-        private void InitValue(ComboBox cb, IReadOnlyCollection<INameable> dataSource, bool resetIndex = true)
+        private static void InitValue(ComboBox cb, IReadOnlyCollection<INameable> dataSource, bool resetIndex = true)
         {
             cb.DataSource = dataSource;
             cb.DisplayMember = "Name";
