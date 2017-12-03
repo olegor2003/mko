@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Mko.ObjectModel.Model;
 using Mko.ObjectModel.Repositories;
 
@@ -25,11 +26,12 @@ namespace Mko.Infra.Repositories
             throw new System.NotImplementedException();
         }
 
-        public IQueryable<Pupil> GetPupils(int yearId, int gradeId)
+        public IReadOnlyCollection<Pupil> GetPupils(int yearId, int gradeId)
         {
             return _context
                     .Pupils
-                    .Where(p => p.SchoolYears.Any(sy => sy.YearId == yearId && sy.GradeId == gradeId));
+                    .Where(p => p.SchoolYears.Any(sy => sy.YearId == yearId && sy.GradeId == gradeId))
+                    .ToList();
         }
     }
 }

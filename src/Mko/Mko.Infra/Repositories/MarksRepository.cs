@@ -11,7 +11,7 @@ namespace Mko.Infra.Repositories
         {
         }
 
-        public IReadOnlyCollection<Mark> GetMarksFor(int pupilId, Periods period, int yearId)
+        public IReadOnlyCollection<Mark> GetMarksFor(int pupilId, Period period, int yearId)
         {
             return _context.Marks
                             .Where(m => m.PupilId == pupilId && m.Period == period && m.YearId == yearId)

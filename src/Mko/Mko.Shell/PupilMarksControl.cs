@@ -10,26 +10,20 @@ namespace Mko.Shell
     {
         private Pupil CurrentPupil => pupilBindingSource.Current as Pupil;
 
+        public event EventHandler<Pupil> CurrentPupilChanged;
+
+        public event EventHandler<Period> CurrentPeriodChanged;
+
+        public event EventHandler Save;
+
         public PupilMarksControl()
         {
             InitializeComponent();
             pupilBindingSource.CurrentChanged += PupilBindingSourceCurrentChanged;
         }
 
-        private void PupilBindingSourceCurrentChanged(object sender, EventArgs e)
-        {
-            var copy = CurrentPupilChanged;
-            copy?.Invoke(this, CurrentPupil);
-        }
-
-        public event EventHandler<Pupil> CurrentPupilChanged;
-
         public IReadOnlyCollection<Pupil> Pupils
         {
-            get
-            {
-                return pupilBindingSource.DataSource as IReadOnlyCollection<Pupil>;
-            }
             set
             {
                 pupilBindingSource.DataSource = null;
@@ -39,11 +33,12 @@ namespace Mko.Shell
 
         public IReadOnlyCollection<SubjectMark> Marks
         {
-            set { subjectMarksBindingSource.DataSource = value; }
+            set
+            {
+                subjectMarksBindingSource.DataSource = null;
+                subjectMarksBindingSource.DataSource = value;
+            }
         }
-
-        public event EventHandler<Periods> CurrentPeriodChanged;
-        public event EventHandler Save;
         
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -51,9 +46,10 @@ namespace Mko.Shell
             copy?.Invoke(this, new EventArgs());
         }
 
-        private void subjectMarkDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void PupilBindingSourceCurrentChanged(object sender, EventArgs e)
         {
-            // нужно ввести число
+            var copy = CurrentPupilChanged;
+            copy?.Invoke(this, CurrentPupil);
         }
     }
 }

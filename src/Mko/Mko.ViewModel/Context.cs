@@ -6,7 +6,8 @@ namespace Mko.ViewModel
     {
         public Year CurrentYear { get; set; }
 
-        public Periods CurrentPeriod { get; set; }
+        // TODO implement
+        public Period CurrentPeriod { get; set; } = Period.Start;
 
         public Grade CurrentGrade { get; set; }
 

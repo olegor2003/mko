@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Mko.ObjectModel.Annotations;
-
-namespace Mko.ObjectModel.Model
+﻿namespace Mko.ObjectModel.Model
 {
     public class Mark : BaseEntity
     {
@@ -18,6 +14,6 @@ namespace Mko.ObjectModel.Model
 
         public int YearId { get; set; }
 
-        public Periods Period { get; set; }
+        public Period Period { get; set; }
     }
 }

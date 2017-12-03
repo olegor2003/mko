@@ -19,7 +19,7 @@ namespace Mko.ViewModel
             _gradeRepository = gradeRepository;
             _pupilMarksPresenterFactory = pupilMarksPresenterFactory;
             _context = context;
-            _shellView.Years = yearsRepository.GetAllYears().ToList();
+            _shellView.Years = yearsRepository.GetAllYears();
             _shellView.YearChanged += OnYearChanged;
             _shellView.GradeChanged += OnGradeChanged;
         }

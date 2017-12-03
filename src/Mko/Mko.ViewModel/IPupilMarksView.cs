@@ -4,15 +4,15 @@ using Mko.ObjectModel.Model;
 
 namespace Mko.ViewModel
 {
-    public interface IPupilMarksView: IView
+    public interface IPupilMarksView : IView
     {
         event EventHandler<Pupil> CurrentPupilChanged;
 
-        event EventHandler<Periods> CurrentPeriodChanged;
+        event EventHandler<Period> CurrentPeriodChanged;
 
         event EventHandler Save;
 
-        IReadOnlyCollection<Pupil> Pupils { get; set; }
+        IReadOnlyCollection<Pupil> Pupils { set; }
 
         IReadOnlyCollection<SubjectMark> Marks { set; }
     }

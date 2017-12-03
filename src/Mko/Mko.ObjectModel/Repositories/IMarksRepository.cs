@@ -5,6 +5,6 @@ namespace Mko.ObjectModel.Repositories
 {
     public interface IMarksRepository
     {
-        IReadOnlyCollection<Mark> GetMarksFor(int pupilId, Periods period, int yearId);
+        IReadOnlyCollection<Mark> GetMarksFor(int pupilId, Period period, int yearId);
     }
 }

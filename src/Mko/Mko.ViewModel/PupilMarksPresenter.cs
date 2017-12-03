@@ -27,13 +27,13 @@ namespace Mko.ViewModel
             _saveService = saveService;
             View = pupilView;
             View.CurrentPupilChanged += OnCurrentPupilChanged;
-            View.Pupils = pupilRepository.GetPupils(context.CurrentYear.Id, context.CurrentGrade.Id).ToList();
+            View.Pupils = pupilRepository.GetPupils(context.CurrentYear.Id, context.CurrentGrade.Id);
             View.Save += OnSave;
         }
 
         private void OnSave(object sender, System.EventArgs e)
         {
-            SaveChanges();
+            SaveChanges(true);
         }
 
         private void OnCurrentPupilChanged(object sender, Pupil pupil)
@@ -54,7 +54,6 @@ namespace Mko.ViewModel
             var subjects = _subjectRepository.GetSubjects(_context.CurrentGrade.Parallel);
             var marks = _marksRepository.GetMarksFor(pupil.Id, _context.CurrentPeriod, _context.CurrentYear.Id);
             var subjectMarks = subjects.Select(s => new SubjectMark(s, marks.FirstOrDefault(m => m.Subject.Id == s.Id)?.Value));
-            _observableSubjectMarks.Clear();
             foreach (var sm in subjectMarks)
             {
                 _observableSubjectMarks.Add(sm);
@@ -71,7 +70,7 @@ namespace Mko.ViewModel
             _isDirty = true;
         }
 
-        private void SaveChanges()
+        private void SaveChanges(bool force = false)
         {
             var marksToSave = new List<Mark>();
             foreach (var changedMark in _changedMarks)
@@ -97,7 +96,7 @@ namespace Mko.ViewModel
                 }
                 marksToSave.Add(mark);
             }
-            _saveService.SaveChanges(marksToSave.ToArray());
+            _saveService.SaveChanges(marksToSave.ToArray(), force);
 
             _isDirty = false;
         }

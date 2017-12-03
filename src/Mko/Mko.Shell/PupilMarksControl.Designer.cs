@@ -134,7 +134,6 @@
             this.subjectMarkDataGridView.Name = "subjectMarkDataGridView";
             this.subjectMarkDataGridView.Size = new System.Drawing.Size(430, 322);
             this.subjectMarkDataGridView.TabIndex = 0;
-            this.subjectMarkDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.subjectMarkDataGridView_DataError);
             // 
             // dataGridViewTextBoxColumn3
             // 

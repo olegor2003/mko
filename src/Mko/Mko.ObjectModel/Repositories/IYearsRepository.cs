@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Mko.ObjectModel.Model;
 
 namespace Mko.ObjectModel.Repositories
@@ -7,6 +8,6 @@ namespace Mko.ObjectModel.Repositories
     {
         Year GetCurrentYear();
 
-        IQueryable<Year> GetAllYears();
+        IReadOnlyCollection<Year> GetAllYears();
     }
 }

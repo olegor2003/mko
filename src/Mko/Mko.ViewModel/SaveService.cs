@@ -16,7 +16,7 @@ namespace Mko.ViewModel
             _mainDbContext = mainDbContext;
         }
 
-        public void SaveChanges<T>(T[] values) where T : BaseEntity
+        public void SaveChanges<T>(T[] values, bool force = false) where T : BaseEntity
         {
             if (values == null || values.Length == 0)
             {
@@ -24,7 +24,7 @@ namespace Mko.ViewModel
             }
             using (var view = _viewFactory())
             {
-                if (view.SaveConfirmed)
+                if (force || view.SaveConfirmed)
                 {
                     _mainDbContext.Set<T>().AddOrUpdate(values);
                     _mainDbContext.SaveChanges();

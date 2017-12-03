@@ -4,6 +4,6 @@ namespace Mko.ViewModel
 {
     public interface ISaveService
     {
-        void SaveChanges<T>(T[] values) where T : BaseEntity;
+        void SaveChanges<T>(T[] values, bool force = false) where T : BaseEntity;
     }
 }
