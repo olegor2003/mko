@@ -2,8 +2,6 @@
 using System.Reflection;
 using System.Windows.Forms;
 using Autofac;
-using Mko.Infra;
-using Mko.ObjectModel.Model;
 using Mko.ViewModel;
 
 namespace Mko.Shell

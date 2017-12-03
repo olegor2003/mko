@@ -14,6 +14,8 @@ namespace Mko.ObjectModel.Model
 
         public int? Value { get; set; }
 
+        public Year Year { get; set; }
+
         public int YearId { get; set; }
 
         public Periods Period { get; set; }

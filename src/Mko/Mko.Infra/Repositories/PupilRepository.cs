@@ -25,11 +25,11 @@ namespace Mko.Infra.Repositories
             throw new System.NotImplementedException();
         }
 
-        public IQueryable<Pupil> GetYearPupils(int yearId)
+        public IQueryable<Pupil> GetPupils(int yearId, int gradeId)
         {
             return _context
                     .Pupils
-                    .Where(p => p.SchoolYears.Any(sy => sy.YearId == yearId));
+                    .Where(p => p.SchoolYears.Any(sy => sy.YearId == yearId && sy.GradeId == gradeId));
         }
     }
 }

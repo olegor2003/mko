@@ -67,6 +67,7 @@
     <Compile Include="Repositories\MarksRepository.cs" />
     <Compile Include="Repositories\PupilRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\SubjectRepository.cs" />
     <Compile Include="Repositories\YearsRepository.cs" />
     <Compile Include="SchoolYearProfile.cs" />
     <Compile Include="YearProfile.cs" />

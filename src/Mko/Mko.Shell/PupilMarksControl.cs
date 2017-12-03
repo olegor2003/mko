@@ -6,7 +6,7 @@ using Mko.ViewModel;
 
 namespace Mko.Shell
 {
-    public partial class PupilMarksControl : UserControl, IPeopleMarksView
+    public partial class PupilMarksControl : UserControl, IPupilMarksView
     {
         private Pupil CurrentPupil => pupilBindingSource.Current as Pupil;
 
@@ -43,5 +43,17 @@ namespace Mko.Shell
         }
 
         public event EventHandler<Periods> CurrentPeriodChanged;
+        public event EventHandler Save;
+        
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var copy = Save;
+            copy?.Invoke(this, new EventArgs());
+        }
+
+        private void subjectMarkDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // нужно ввести число
+        }
     }
 }

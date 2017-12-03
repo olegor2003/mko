@@ -10,7 +10,7 @@ namespace Mko.Infra
             Property(m => m.Period).IsRequired();
 
             Property(m => m.Value).IsRequired();
-
+            
             Property(m => m.PupilId).IsRequired();
 
             Property(m => m.YearId).IsRequired();

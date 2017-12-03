@@ -6,7 +6,7 @@ namespace Mko.ObjectModel.Repositories
 {
     public interface IPupilRepository
     {
-        IQueryable<Pupil> GetYearPupils(int yearId);
+        IQueryable<Pupil> GetPupils(int yearId, int gradeId);
 
         void AddPupil(Pupil pupil);
 

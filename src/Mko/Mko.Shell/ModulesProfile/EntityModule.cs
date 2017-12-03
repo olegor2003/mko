@@ -20,7 +20,8 @@ namespace Mko.Shell.ModulesProfile
 
             moduleBuilder
                 .RegisterType<PupilMarksControl>()
-                .As<IPeopleMarksView>();
+                .As<IPupilMarksView>()
+                .InstancePerDependency();
 
             moduleBuilder
                 .RegisterType<GradeRepository>()
@@ -29,6 +30,10 @@ namespace Mko.Shell.ModulesProfile
             moduleBuilder
                 .RegisterType<MarksRepository>()
                 .As<IMarksRepository>();
+
+            moduleBuilder
+                .RegisterType<SubjectRepository>()
+                .As<ISubjectRepository>();
 
             moduleBuilder
                 .RegisterType<ShellPresenter>();

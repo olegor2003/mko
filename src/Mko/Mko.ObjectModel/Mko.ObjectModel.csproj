@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMarksRepository.cs" />
     <Compile Include="Repositories\IPupilRepository.cs" />
+    <Compile Include="Repositories\ISubjectRepository.cs" />
     <Compile Include="Repositories\IYearsRepository.cs" />
   </ItemGroup>
   <ItemGroup>

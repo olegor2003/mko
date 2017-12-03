@@ -1,8 +1,6 @@
 ﻿using Mko.Infra;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
 using Mko.ObjectModel.Model;
 
 namespace Mko.ViewModel
@@ -18,17 +16,17 @@ namespace Mko.ViewModel
             _mainDbContext = mainDbContext;
         }
 
-
         public void SaveChanges<T>(T[] values) where T : BaseEntity
         {
+            if (values == null || values.Length == 0)
+            {
+                return;
+            }
             using (var view = _viewFactory())
             {
                 if (view.SaveConfirmed)
                 {
-                    foreach (var m in values)
-                    {
-                        _mainDbContext.Set<T>().AddOrUpdate(values);
-                    }
+                    _mainDbContext.Set<T>().AddOrUpdate(values);
                     _mainDbContext.SaveChanges();
                 }
             }

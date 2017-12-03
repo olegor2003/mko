@@ -25,6 +25,13 @@ namespace Mko.Shell
 
         public void AddView(IView view)
         {
+            foreach (var form in panel1.Controls)
+            {
+                var control = form as UserControl;
+                control.Dispose();
+                control = null;
+            }
+            panel1.Controls.Clear();
             panel1.Controls.Add(view as Control);
         }
 

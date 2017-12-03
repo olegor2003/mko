@@ -8,18 +8,13 @@ namespace Mko.ViewModel
 {
     public class SubjectMark : INotifyPropertyChanged
     {
-        private readonly Mark _mark;
         private readonly Subject _subject;
-        private int? val;
+        private int? _value;
 
-        public SubjectMark(Subject subject, Mark mark)
+        public SubjectMark(Subject subject, int? value)
         {
             _subject = subject;
-            _mark = mark;
-            if (mark != null)
-            {
-                val = mark.Value;
-            }
+            _value = value;
         }
 
         public int SubjectId => _subject.Id;
@@ -28,10 +23,10 @@ namespace Mko.ViewModel
 
         public int? Value
         {
-            get { return val; }
+            get { return _value; }
             set
             {
-                SetField(ref val, value);
+                SetField(ref _value, value);
             }
         }
 
@@ -39,7 +34,10 @@ namespace Mko.ViewModel
 
         protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+            if (EqualityComparer<T>.Default.Equals(field, value))
+            {
+                return false;
+            }
             field = value;
             OnPropertyChanged(propertyName);
             return true;
