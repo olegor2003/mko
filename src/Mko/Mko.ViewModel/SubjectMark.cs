@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using Mko.ObjectModel.Model;
 using Mko.ViewModel.Annotations;
@@ -23,7 +24,10 @@ namespace Mko.ViewModel
 
         public int? Value
         {
-            get { return _value; }
+            get
+            {
+                return _value;
+            }
             set
             {
                 SetField(ref _value, value);
@@ -34,6 +38,10 @@ namespace Mko.ViewModel
 
         protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
+            if (object.Equals(value, default(T)))
+            {
+                throw new ValidationException("Пустое значение не допустимо!");
+            }
             if (EqualityComparer<T>.Default.Equals(field, value))
             {
                 return false;

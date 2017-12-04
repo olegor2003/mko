@@ -31,6 +31,7 @@ namespace Mko.Infra.Repositories
             return _context
                     .Pupils
                     .Where(p => p.SchoolYears.Any(sy => sy.YearId == yearId && sy.GradeId == gradeId))
+                    .OrderBy(p => p.LastName)
                     .ToList();
         }
     }

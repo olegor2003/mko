@@ -95,6 +95,8 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ShellForm";
             this.Text = "Мониторинг качества образования";
             this.menuStrip.ResumeLayout(false);

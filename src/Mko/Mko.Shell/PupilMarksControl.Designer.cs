@@ -36,12 +36,12 @@
             this.startPeriodControl = new System.Windows.Forms.TabPage();
             this.btnSave = new System.Windows.Forms.Button();
             this.subjectMarkDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectMarksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.midiatePeriodControl = new System.Windows.Forms.TabPage();
             this.finalPeriodControl = new System.Windows.Forms.TabPage();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayaout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pupilsGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pupilBindingSource)).BeginInit();
@@ -135,19 +135,6 @@
             this.subjectMarkDataGridView.Size = new System.Drawing.Size(430, 322);
             this.subjectMarkDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Subject";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Предмет";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Value";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Оценка";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
             // subjectMarksBindingSource
             // 
             this.subjectMarksBindingSource.DataSource = typeof(Mko.ViewModel.SubjectMark);
@@ -177,6 +164,20 @@
             this.FullName.HeaderText = "Имя учащегося";
             this.FullName.Name = "FullName";
             this.FullName.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Subject";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Предмет";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Value";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Оценка";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // PupilMarksControl
             // 
@@ -208,9 +209,9 @@
         private System.Windows.Forms.BindingSource pupilBindingSource;
         private System.Windows.Forms.BindingSource subjectMarksBindingSource;
         private System.Windows.Forms.DataGridView subjectMarkDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
