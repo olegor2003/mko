@@ -8,7 +8,7 @@ namespace Mko.ObjectModel.Model
 
         public string LastName { get; set; }
 
-        public string FullName => $"{FirstName} {LastName}";
+        public string FullName => $"{LastName} {FirstName}";
 
         internal virtual ICollection<SchoolYear> SchoolYears { get; set; }
     }
