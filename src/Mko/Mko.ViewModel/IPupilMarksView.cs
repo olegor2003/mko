@@ -8,12 +8,14 @@ namespace Mko.ViewModel
     {
         event EventHandler<Pupil> CurrentPupilChanged;
 
-        event EventHandler<Period> CurrentPeriodChanged;
+        event EventHandler OnSaveClicked;
 
-        event EventHandler Save;
+        event EventHandler<Period> CurrentPeriodChanged;
 
         IReadOnlyCollection<Pupil> Pupils { set; }
 
         IReadOnlyCollection<SubjectMark> Marks { set; }
+
+        bool SaveEnabled { set; }
     }
 }

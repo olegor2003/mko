@@ -34,14 +34,15 @@
             this.pupilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.periodsTabControl = new System.Windows.Forms.TabControl();
             this.startPeriodControl = new System.Windows.Forms.TabPage();
+            this.rbFinish = new System.Windows.Forms.RadioButton();
+            this.rbMedium = new System.Windows.Forms.RadioButton();
+            this.rbStartPeriod = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
             this.subjectMarkDataGridView = new System.Windows.Forms.DataGridView();
-            this.subjectMarksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.midiatePeriodControl = new System.Windows.Forms.TabPage();
-            this.finalPeriodControl = new System.Windows.Forms.TabPage();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectMarksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayaout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pupilsGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pupilBindingSource)).BeginInit();
@@ -64,6 +65,8 @@
             this.tableLayaout.Name = "tableLayaout";
             this.tableLayaout.RowCount = 1;
             this.tableLayaout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayaout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayaout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayaout.Size = new System.Drawing.Size(768, 429);
             this.tableLayaout.TabIndex = 2;
             // 
@@ -91,8 +94,6 @@
             // periodsTabControl
             // 
             this.periodsTabControl.Controls.Add(this.startPeriodControl);
-            this.periodsTabControl.Controls.Add(this.midiatePeriodControl);
-            this.periodsTabControl.Controls.Add(this.finalPeriodControl);
             this.periodsTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.periodsTabControl.Location = new System.Drawing.Point(303, 3);
             this.periodsTabControl.Name = "periodsTabControl";
@@ -102,6 +103,9 @@
             // 
             // startPeriodControl
             // 
+            this.startPeriodControl.Controls.Add(this.rbFinish);
+            this.startPeriodControl.Controls.Add(this.rbMedium);
+            this.startPeriodControl.Controls.Add(this.rbStartPeriod);
             this.startPeriodControl.Controls.Add(this.btnSave);
             this.startPeriodControl.Controls.Add(this.subjectMarkDataGridView);
             this.startPeriodControl.Location = new System.Drawing.Point(4, 22);
@@ -109,15 +113,54 @@
             this.startPeriodControl.Padding = new System.Windows.Forms.Padding(3);
             this.startPeriodControl.Size = new System.Drawing.Size(454, 397);
             this.startPeriodControl.TabIndex = 0;
-            this.startPeriodControl.Text = "Начальный";
+            this.startPeriodControl.Text = "Оценивание";
             this.startPeriodControl.UseVisualStyleBackColor = true;
+            // 
+            // rbFinish
+            // 
+            this.rbFinish.AutoSize = true;
+            this.rbFinish.Location = new System.Drawing.Point(8, 66);
+            this.rbFinish.Name = "rbFinish";
+            this.rbFinish.Size = new System.Drawing.Size(75, 17);
+            this.rbFinish.TabIndex = 9;
+            this.rbFinish.TabStop = true;
+            this.rbFinish.Tag = "3";
+            this.rbFinish.Text = "Итоговый";
+            this.rbFinish.UseVisualStyleBackColor = true;
+            this.rbFinish.CheckedChanged += new System.EventHandler(this.rbStartPeriod_CheckedChanged);
+            // 
+            // rbMedium
+            // 
+            this.rbMedium.AutoSize = true;
+            this.rbMedium.Location = new System.Drawing.Point(8, 43);
+            this.rbMedium.Name = "rbMedium";
+            this.rbMedium.Size = new System.Drawing.Size(108, 17);
+            this.rbMedium.TabIndex = 8;
+            this.rbMedium.Tag = "2";
+            this.rbMedium.Text = "Промежуточный";
+            this.rbMedium.UseVisualStyleBackColor = true;
+            this.rbMedium.CheckedChanged += new System.EventHandler(this.rbStartPeriod_CheckedChanged);
+            // 
+            // rbStartPeriod
+            // 
+            this.rbStartPeriod.AutoSize = true;
+            this.rbStartPeriod.Checked = true;
+            this.rbStartPeriod.Location = new System.Drawing.Point(8, 20);
+            this.rbStartPeriod.Name = "rbStartPeriod";
+            this.rbStartPeriod.Size = new System.Drawing.Size(82, 17);
+            this.rbStartPeriod.TabIndex = 7;
+            this.rbStartPeriod.TabStop = true;
+            this.rbStartPeriod.Tag = "1";
+            this.rbStartPeriod.Text = "Начальный";
+            this.rbStartPeriod.UseVisualStyleBackColor = true;
+            this.rbStartPeriod.CheckedChanged += new System.EventHandler(this.rbStartPeriod_CheckedChanged);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(361, 350);
+            this.btnSave.Location = new System.Drawing.Point(349, 353);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
+            this.btnSave.Size = new System.Drawing.Size(98, 23);
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Сохранить";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -130,40 +173,10 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.subjectMarkDataGridView.DataSource = this.subjectMarksBindingSource;
-            this.subjectMarkDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.subjectMarkDataGridView.Location = new System.Drawing.Point(5, 96);
             this.subjectMarkDataGridView.Name = "subjectMarkDataGridView";
-            this.subjectMarkDataGridView.Size = new System.Drawing.Size(430, 322);
-            this.subjectMarkDataGridView.TabIndex = 0;
-            // 
-            // subjectMarksBindingSource
-            // 
-            this.subjectMarksBindingSource.DataSource = typeof(Mko.ViewModel.SubjectMark);
-            // 
-            // midiatePeriodControl
-            // 
-            this.midiatePeriodControl.Location = new System.Drawing.Point(4, 22);
-            this.midiatePeriodControl.Name = "midiatePeriodControl";
-            this.midiatePeriodControl.Padding = new System.Windows.Forms.Padding(3);
-            this.midiatePeriodControl.Size = new System.Drawing.Size(454, 397);
-            this.midiatePeriodControl.TabIndex = 1;
-            this.midiatePeriodControl.Text = "Промежуточный";
-            this.midiatePeriodControl.UseVisualStyleBackColor = true;
-            // 
-            // finalPeriodControl
-            // 
-            this.finalPeriodControl.Location = new System.Drawing.Point(4, 22);
-            this.finalPeriodControl.Name = "finalPeriodControl";
-            this.finalPeriodControl.Size = new System.Drawing.Size(454, 397);
-            this.finalPeriodControl.TabIndex = 2;
-            this.finalPeriodControl.Text = "Итоговый";
-            this.finalPeriodControl.UseVisualStyleBackColor = true;
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "Имя учащегося";
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
+            this.subjectMarkDataGridView.Size = new System.Drawing.Size(442, 251);
+            this.subjectMarkDataGridView.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -179,6 +192,17 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // subjectMarksBindingSource
+            // 
+            this.subjectMarksBindingSource.DataSource = typeof(Mko.ViewModel.SubjectMark);
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "Имя учащегося";
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
             // PupilMarksControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +215,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pupilBindingSource)).EndInit();
             this.periodsTabControl.ResumeLayout(false);
             this.startPeriodControl.ResumeLayout(false);
+            this.startPeriodControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subjectMarkDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectMarksBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -202,16 +227,17 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayaout;
         private System.Windows.Forms.DataGridView pupilsGridControl;
-        private System.Windows.Forms.TabControl periodsTabControl;
-        private System.Windows.Forms.TabPage startPeriodControl;
-        private System.Windows.Forms.TabPage midiatePeriodControl;
-        private System.Windows.Forms.TabPage finalPeriodControl;
         private System.Windows.Forms.BindingSource pupilBindingSource;
         private System.Windows.Forms.BindingSource subjectMarksBindingSource;
-        private System.Windows.Forms.DataGridView subjectMarkDataGridView;
+        private System.Windows.Forms.TabControl periodsTabControl;
+        private System.Windows.Forms.TabPage startPeriodControl;
+        private System.Windows.Forms.RadioButton rbFinish;
+        private System.Windows.Forms.RadioButton rbMedium;
+        private System.Windows.Forms.RadioButton rbStartPeriod;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridView subjectMarkDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
     }
 }

@@ -12,11 +12,24 @@ namespace Mko.ViewModel
         private readonly ISubjectRepository _subjectRepository;
         private readonly Context _context;
         private readonly ISaveService _saveService;
-        private bool _isDirty = false;
+        private bool _isDirty;
         private ObservableCollectionEx<SubjectMark> _observableSubjectMarks;
         private HashSet<SubjectMark> _changedMarks;
         private IReadOnlyCollection<Subject> _subjects;
         private IReadOnlyCollection<Mark> _pupilMarks;
+
+        private bool IsDirty
+        {
+            get
+            {
+                return _isDirty;
+            }
+            set
+            {
+                _isDirty = value;
+                View.SaveEnabled = value;
+            }
+        }
 
         public IPupilMarksView View { get; }
 
@@ -25,12 +38,21 @@ namespace Mko.ViewModel
             _marksRepository = marksRepository;
             _subjectRepository = subjectRepository;
             _context = context;
+            _context.CurrentPeriod = Period.Start;
             _saveService = saveService;
             _subjects = _subjectRepository.GetSubjects(_context.CurrentGrade.Parallel);
             View = pupilView;
             View.CurrentPupilChanged += OnCurrentPupilChanged;
             View.Pupils = pupilRepository.GetPupils(context.CurrentYear.Id, context.CurrentGrade.Id);
-            View.Save += OnSave;
+            View.OnSaveClicked += OnSave;
+            View.CurrentPeriodChanged += OnCurrentPeriodChanged;
+            IsDirty = false;
+        }
+
+        private void OnCurrentPeriodChanged(object sender, Period e)
+        {
+            _context.CurrentPeriod = e;
+            Prepare(_context.CurrentPupil);
         }
 
         private void OnSave(object sender, System.EventArgs e)
@@ -45,7 +67,7 @@ namespace Mko.ViewModel
                 return;
             }
 
-            if (_isDirty)
+            if (IsDirty)
             {
                 SaveChanges();
             }
@@ -73,7 +95,7 @@ namespace Mko.ViewModel
         {
             var changesMark = e.NewItems[0] as SubjectMark;
             _changedMarks.Add(changesMark);
-            _isDirty = true;
+            IsDirty = true;
         }
 
         private IEnumerable<SubjectMark> GetSubjectMarks()
@@ -100,7 +122,7 @@ namespace Mko.ViewModel
 
             _saveService.SaveChanges(marksToSave, force);
 
-            _isDirty = false;
+            IsDirty = false;
         }
 
         private static Mark Update(Mark mark, int? value)
